@@ -6,7 +6,7 @@ before_install:
   - curl https://sdk.cloud.google.com > install.sh
   - bash install.sh --disable-prompts
   - source $HOME/google-cloud-sdk/path.bash.inc
-  - gcloud components install kubectl
+  - gcloud components install kubectl -q
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project multi-k8s-296115
   - gcloud config set compute/zone us-central1-c
