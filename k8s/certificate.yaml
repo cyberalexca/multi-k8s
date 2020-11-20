@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata: 
+  name: curvelift-com-tls
+spec:
+  secretName: curvelift-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: curvelift.com
+  dnsNames:
+    - curvelift.com
+    - www.curvelift.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - curvelift.com
+          - www.curvelift.com
